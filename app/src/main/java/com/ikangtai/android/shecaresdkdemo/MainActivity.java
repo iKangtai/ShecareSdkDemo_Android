@@ -9,7 +9,6 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.ikangtai.android.shecaresdk.BindActivity;
 import com.ikangtai.android.shecaresdk.OnDataListener;
 import com.ikangtai.android.shecaresdk.ShecareSdk;
 import com.ikangtai.android.shecaresdk.ble.OnBindListener;
@@ -36,10 +35,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         ShecareSdk.setUserId("11111");
 
         Button btn1 = (Button) findViewById(R.id.btn_1);
         Button btn2 = (Button) findViewById(R.id.btn_2);
+
         Button btn3 = (Button) findViewById(R.id.btn_3);
         Button btn4 = (Button) findViewById(R.id.btn_4);
         Button btn5 = (Button) findViewById(R.id.btn_5);
@@ -58,25 +59,26 @@ public class MainActivity extends AppCompatActivity {
                     public UploadData upload() {
                         //初次上传所有 信息
                         UploadData uploadData = new UploadData();
-                        uploadData.setMacAddress("ZZ-ZZ-ZZ-ZZ-ZZ-ZZ");
+                        uploadData.setMacAddress("AA:AA:AA:AA:AA");
                         uploadData.setUserId(ShecareSdk.sdkUserId);
                         // 添加体温
                         List<UploadData.TempsBean> temperatures = new ArrayList<>();
                         UploadData.TempsBean tempsBean = new UploadData.TempsBean();
                         tempsBean.setTempTime("2018-03-01 12:12:12");
                         tempsBean.setTempValue("36.60");
+                        tempsBean.setDeleted(0);
                         uploadData.setTemps(temperatures);
                         // 添加经期
                         List<UploadData.PeriodsBean> periodsBeans = new ArrayList<>();
                         UploadData.PeriodsBean periodsBean1 = new UploadData.PeriodsBean();
                         periodsBean1.setPeriod(1); // 1表示经期开始，2表示经期结束
                         periodsBean1.setTime("2018-03-01");
-                        periodsBean1.setStatus(1); //1 表示有效经期，0表示无效经期
+                        periodsBean1.setDeleted(0); //1表示删除，0表示未删除
                         periodsBeans.add(periodsBean1);
                         UploadData.PeriodsBean periodsBean2 = new UploadData.PeriodsBean();
                         periodsBean2.setPeriod(2);
                         periodsBean2.setTime("2018-03-01");
-                        periodsBean2.setStatus(1);
+                        periodsBean2.setDeleted(0);
                         periodsBeans.add(periodsBean2);
                         uploadData.setPeriods(periodsBeans);
                         //添加生理信息
@@ -121,7 +123,8 @@ public class MainActivity extends AppCompatActivity {
                 temperature.setDate("2018-02-22 12:12:12");
                 list.add(temperature);
 //                temperature.setTemp();
-                ShecareSdk.uploadTemps("ZZ-ZZ-ZZ-ZZ-ZZ-ZZ", list, new OnCallBack<UploadDataResp>() {
+                ShecareSdk.uploadTemps("AA:AA:AA:AA:AA:AA", list, new OnCallBack<UploadDataResp>
+                        () {
                     @Override
                     public void onSuccess(UploadDataResp uploadDataResp) {
                         Toast.makeText(MainActivity.this, "上传成功", Toast.LENGTH_SHORT).show();
@@ -143,12 +146,12 @@ public class MainActivity extends AppCompatActivity {
                 Period periodsBean1 = new Period();
                 periodsBean1.setPeriod(1); // 1表示经期开始，2表示经期结束
                 periodsBean1.setTime("2018-03-01");
-                periodsBean1.setStatus(1); //1 表示有效经期，0表示无效经期
+//                periodsBean1.setDeleted(0); //1表示删除，0表示未删除
                 periodsBeans.add(periodsBean1);
                 Period periodsBean2 = new Period();
                 periodsBean2.setPeriod(2);
                 periodsBean2.setTime("2018-03-01");
-                periodsBean2.setStatus(1);
+//                periodsBean2.setDeleted(0);
                 periodsBeans.add(periodsBean2);
 
                 ShecareSdk.uploadPeriods(periodsBeans, new OnCallBack<UploadDataResp>() {
@@ -190,7 +193,8 @@ public class MainActivity extends AppCompatActivity {
         btn6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, BindActivity.class));
+//                startActivity(new Intent(MainActivity.this, BindActivity.class));
+                ShecareSdk.bindDevice(MainActivity.this);
             }
         });
 
@@ -254,7 +258,7 @@ public class MainActivity extends AppCompatActivity {
 
                     @Override
                     public void onFailure(int code, String msg) {
-                        Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, code + msg, Toast.LENGTH_SHORT).show();
                     }
                 });
             }
@@ -274,15 +278,18 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
 
+        super.onActivityResult(requestCode, resultCode, data);
 
         if (resultCode == RESULT_OK) {
             macAddress = data.getStringExtra("macAddress");
             version = data.getStringExtra("version");
-            Toast.makeText(ShecareSdk.getContext(), macAddress + "  " + version, Toast.LENGTH_SHORT).show();
+            Toast.makeText(MainActivity.this, macAddress + "  " + version, Toast.LENGTH_SHORT)
+                    .show();
         }
+
     }
 }
