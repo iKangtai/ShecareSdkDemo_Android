@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     private String macAddress;
+    private String version;
     private SharedPreferences sp;
     private List<Temperature> temperatureList;
 
@@ -303,8 +304,10 @@ public class MainActivity extends AppCompatActivity {
 
         if (resultCode == RESULT_OK) {
             macAddress = data.getStringExtra("macAddress");
+            version = data.getStringExtra("version");
             if (!TextUtils.isEmpty(macAddress)) {
-                Toast.makeText(ShecareSdk.getContext(), macAddress, Toast.LENGTH_SHORT)
+                Toast.makeText(ShecareSdk.getContext(), macAddress + "；  " + version, Toast
+                        .LENGTH_SHORT)
                         .show();
 
                 //存储已经绑定的设备地址，这里存储在sp中，具体保存方式可根据你们的业务逻辑来处理
