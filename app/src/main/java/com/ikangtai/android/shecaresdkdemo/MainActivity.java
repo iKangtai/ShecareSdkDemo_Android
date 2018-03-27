@@ -16,7 +16,6 @@ import com.ikangtai.android.shecaresdk.ShecareSdk;
 import com.ikangtai.android.shecaresdk.ble.bind.OnUnBindListener;
 import com.ikangtai.android.shecaresdk.ble.connect.OnReceiveDataListener;
 import com.ikangtai.android.shecaresdk.databean.net.req.UploadData;
-import com.ikangtai.android.shecaresdk.databean.net.resp.AnalysisResp;
 import com.ikangtai.android.shecaresdk.databean.net.resp.UploadDataResp;
 import com.ikangtai.android.shecaresdk.databean.user.Period;
 import com.ikangtai.android.shecaresdk.databean.user.Temperature;
@@ -268,10 +267,10 @@ public class MainActivity extends AppCompatActivity {
         btn9.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ShecareSdk.getAnalysis(new OnCallBack<AnalysisResp>() {
+                ShecareSdk.getAnalysis(new OnCallBack<String>() {
                     @Override
-                    public void onSuccess(AnalysisResp analysisResp) {
-                        Toast.makeText(MainActivity.this, analysisResp.toString(), Toast.LENGTH_SHORT).show();
+                    public void onSuccess(String analysisResp) {
+                        Toast.makeText(MainActivity.this, analysisResp, Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
