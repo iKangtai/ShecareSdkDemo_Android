@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ShecareSdk.setUserId("111327");
+        ShecareSdk.setUserId("e14a522653db91dfd5a3ce2760111333");
 
         Button btn1 = (Button) findViewById(R.id.btn_1);
         Button btn2 = (Button) findViewById(R.id.btn_2);
