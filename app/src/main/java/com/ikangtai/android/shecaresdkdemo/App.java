@@ -13,6 +13,6 @@ public class App extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        ShecareSdk.init(this, "110005", "5614dasdqwdeqw44e");
+        ShecareSdk.init(this, "100200", "6e1b1049a9486d49ba015af00d5a0");
     }
 }
