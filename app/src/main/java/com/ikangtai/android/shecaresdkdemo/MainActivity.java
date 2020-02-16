@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -259,6 +260,16 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onReceiverFailure(int code, String msg) {
 
+                    }
+
+                    @Override
+                    public void onConnectionStateChange(int state, String s) {
+                        if (state == BluetoothProfile.STATE_CONNECTED) {
+                            Log.i("ble_conn", "设备已经连接");
+
+                        } else if (state == BluetoothProfile.STATE_DISCONNECTED) {
+                            Log.i("ble_conn", "设备已经断开");
+                        }
                     }
                 });
             }

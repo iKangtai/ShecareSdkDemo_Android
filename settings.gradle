@@ -1,1 +1,1 @@
-include ':app', ':shecaresdk-debug'
+include ':app', ':shecaresdk'

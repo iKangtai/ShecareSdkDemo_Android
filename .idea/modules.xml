@@ -4,7 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/ShecareSdkDemo_Android.iml" filepath="$PROJECT_DIR$/ShecareSdkDemo_Android.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/shecaresdk-debug/shecaresdk-debug.iml" filepath="$PROJECT_DIR$/shecaresdk-debug/shecaresdk-debug.iml" />
+      <module fileurl="file://$PROJECT_DIR$/shecaresdk/shecaresdk.iml" filepath="$PROJECT_DIR$/shecaresdk/shecaresdk.iml" />
     </modules>
   </component>
 </project>
