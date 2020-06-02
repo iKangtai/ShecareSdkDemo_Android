@@ -1,6 +1,6 @@
 # ShecareSdkDemo_Android
 
-##引入方式
+## 引入方式
     1.第一种方式,复制SDK aar文件到工程的app/libs/目录下，然后gradle配置
         android {
             repositories {
