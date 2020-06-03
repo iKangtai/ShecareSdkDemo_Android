@@ -3,6 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/ShecareSdkDemo_Android.iml" filepath="$PROJECT_DIR$/ShecareSdkDemo_Android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/ShecareSdkDemo_Android-app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/ShecareSdkDemo_Android-app.iml" group="ShecareSdkDemo_Android/app" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/shecaresdk/ShecareSdkDemo_Android-shecaresdk.iml" filepath="$PROJECT_DIR$/.idea/modules/shecaresdk/ShecareSdkDemo_Android-shecaresdk.iml" group="ShecareSdkDemo_Android/shecaresdk" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/android-project-ShecareSdkDemo_Android.iml" filepath="$PROJECT_DIR$/.idea/modules/android-project-ShecareSdkDemo_Android.iml" group="ShecareSdkDemo_Android" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/shecaresdk/shecaresdk.iml" filepath="$PROJECT_DIR$/shecaresdk/shecaresdk.iml" />
     </modules>
