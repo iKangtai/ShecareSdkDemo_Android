@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">ShecareSdkDemo_Android</string>
+    <string name="app_name">SaasSDKApp</string>
+    <string name="unbind_success">Unbind successful</string>
+    <string name="connect_device">Connect thermometer to sync temperature</string>
+    <string name="unbind_device">Unbind</string>
+    <string name="connect_state">Get connection status</string>
+    <string name="unbind_failed">Unbind failed</string>
 </resources>

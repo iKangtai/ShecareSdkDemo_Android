@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SaasSDKApp</string>
+    <string name="unbind_success">解绑成功</string>
+    <string name="connect_device">连接体温计并获取体温</string>
+    <string name="unbind_device">解绑</string>
+    <string name="connect_state">获取连接状态</string>
+    <string name="unbind_failed">解绑失败</string>
+</resources>
